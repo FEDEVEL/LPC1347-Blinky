@@ -1,3 +1,5 @@
+//#define TARGET_LPC13XX
+
 #include "LPC13xx.h"
 #include "system_LPC13xx.h"
 
@@ -12,7 +14,7 @@ void main()
 	SystemInit();
 	
 	// Init on-board LED as output
-	/*LPC_GPIO1->DIR |= 1 << 18;
+	LPC_GPIO0->DIR |= 1 << 7;
 	
 	// Init SysTick
 	SysTick_Config(SystemCoreClock / 1000);				// Generate interrupt every 1 ms
@@ -21,12 +23,12 @@ void main()
 	{
 		timer_mark = msTicks;					// Take timer snapshot 
 		while(msTicks < (timer_mark + 100));	// Wait until 100ms has passed
-		LPC_GPIO1->DATA &= ~(1 << 18);				// Turn the LED off
+		LPC_GPIO0->DATA &= ~(1 << 7);				// Turn the LED off
 	
 		timer_mark = msTicks;					// Take timer snapshot 
 		while(msTicks < (timer_mark + 100));	// Wait until 100ms has passed
-		LPC_GPIO1->DATA |= (1 << 18);				// Turn the LED on
-	}*/
+		LPC_GPIO0->DATA |= (1 << 7);				// Turn the LED on
+	}
 }
 
 //====================================================================================

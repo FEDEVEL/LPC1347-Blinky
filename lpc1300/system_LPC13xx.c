@@ -25,7 +25,7 @@
 #if defined (TARGET_LPC13XX)
 
 #include <stdint.h>
-#include "core/LPC13xx.h"
+#include "LPC13xx.h"
 
 /*
 //-------- <<< Use Configuration Wizard in Context Menu >>> ------------------
