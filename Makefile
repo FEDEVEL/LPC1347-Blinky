@@ -7,7 +7,7 @@ LFLAGS=$(USE_NANO) $(USE_NOHOST) $(LDSCRIPTS) $(GC) $(MAP)
 
 all: $(NAME)-$(CORE).axf $(NAME)-$(CORE).bin
 
-$(NAME)-$(CORE).axf: $(NAME).c lpc1300/system_LPC13xx.c $(STARTUP)
+$(NAME)-$(CORE).axf: $(NAME).c lpc1300/system_LPC13Uxx.c $(STARTUP)
 	$(CC) $^ $(CFLAGS) $(LFLAGS) -o $@
 	
 $(NAME)-$(CORE).bin:$(NAME)-$(CORE).axf
