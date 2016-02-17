@@ -11,10 +11,10 @@ void main()
 	LPC_SYSCON->SYSAHBCLKCTRL |= (1<<6);
 
 	// Select GPIO Mode and disable analog mode, refer to User Manual - UM10524
-	LPC_IOCON->PIO0_7 = 0;
+	LPC_IOCON->PIO0_1 = 0;
 
 	// Set the pin direction, set high for an output
-	LPC_GPIO->DIR[0] |= 1<<7;
+	LPC_GPIO->DIR[0] |= 1<<1;
 	
 	// Init SysTick
 	SysTick_Config(SystemCoreClock / 1000);				// Generate interrupt every 1 ms
@@ -22,8 +22,8 @@ void main()
 	for(;;)
 	{
 		timer_mark = msTicks;					// Take timer snapshot 
-		while(msTicks < (timer_mark + 100));	// Wait until 100ms has passed
-		LPC_GPIO->NOT[0] = 1<<7;
+		while(msTicks < (timer_mark + 1000));	// Wait until 100ms has passed
+		LPC_GPIO->NOT[0] = 1<<1;
 	}
 }
 
